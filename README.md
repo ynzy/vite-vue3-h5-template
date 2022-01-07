@@ -43,6 +43,7 @@ pnpm preview  // 本地预览打包的项目
 - [√ 适配苹果底部安全距离](#phonex)
 - [√ 动态设置 title](#dyntitle)
 - [√ 配置 Jssdk](#jssdk)
+  [▲ 回顶部](#top)
 
 ## <span id="createVue">✅ 使用 create-vue 初始化项目 </span>
 
@@ -78,6 +79,8 @@ Vue.js - The Progressive JavaScript Framework
 - @types/node // 识别 nodejs 内置模块
 ```
 
+[▲ 回顶部](#top)
+
 ## <span id="ip">✅ 配置 ip 访问项目 </span>
 
 - vite 启动后出现 “ Network: use --host to expose ”
@@ -110,6 +113,8 @@ vite v2.3.7 dev server running at:
   > Local:    http://localhost:3000/
   > Network:  http://192.168.199.127:3000/
 ```
+
+[▲ 回顶部](#top)
 
 ## <span id="env">✅ 配置多环境变量 </span>
 
@@ -175,6 +180,8 @@ interface ImportMeta {
 }
 ```
 
+[▲ 回顶部](#top)
+
 ## <span id="alias">✅ 配置 alias 别名 </span>
 
 - 项目初始化已经配置好了一个 src 别名
@@ -188,6 +195,8 @@ resolve: {
     }
   },
 ```
+
+[▲ 回顶部](#top)
 
 ## <span id="sass">✅ Sass 全局样式 </span>
 
@@ -250,6 +259,8 @@ css: {
     },
   },
 ```
+
+[▲ 回顶部](#top)
 
 ## <span id="router">✅ Vue-router4 </span>
 
@@ -326,6 +337,8 @@ export const routes: Array<RouteRecordRaw> = [
   }
 ]
 ```
+
+[▲ 回顶部](#top)
 
 ## <span id="pinia">✅ Pinia 状态管理 </span>
 
@@ -512,6 +525,8 @@ export const useUserStore = defineStore({
 })
 ```
 
+[▲ 回顶部](#top)
+
 ## <span id="prettier">✅ Eslint + Prettier 统一开发规范 </span>
 
 - 初始化项目集成了 eslint + prettier，我们这里只做配置
@@ -577,7 +592,11 @@ module.exports = {
 }
 ```
 
+[▲ 回顶部](#top)
+
 ## <span id="husky">✅ husky + lint-staged 提交校验 </span>
+
+[▲ 回顶部](#top)
 
 ## <span id="mock">✅ 使用 Mock 数据 </span>
 
@@ -726,6 +745,8 @@ export default ({ mode, command }: ConfigEnv): UserConfigExport => {
 }
 ```
 
+[▲ 回顶部](#top)
+
 ## <span id="proxy">✅ 配置 proxy 跨域 </span>
 
 ```js
@@ -758,7 +779,11 @@ server: {
 },
 ```
 
+[▲ 回顶部](#top)
+
 ## <span id="axios">✅ Axios 封装及接口管理 </span>
+
+[▲ 回顶部](#top)
 
 ## <span id="vant">✅ VantUI 组件按需加载 </span>
 
@@ -842,6 +867,8 @@ export default {
 }
 ```
 
+[▲ 回顶部](#top)
+
 ## <span id="viewport">✅ viewport 适配方案 </span>
 
 - 看到 `lib-flexible` 仓库说，由于 viewport 单位得到众多浏览器的兼容，lib-flexible 这个过渡方案已经可以放弃使用，建议大家开始使用 viewport 来替代此方，所以就踩坑用用 viewport
@@ -882,10 +909,54 @@ module.exports = {
 }
 ```
 
+[▲ 回顶部](#top)
+
 ## <span id="phonex">✅ 适配苹果底部安全距离 </span>
+
+- index.html 的 meta 指定了 viewport-fit=cover
+
+- [vant 中自带底部安全距离参数](https://vant-contrib.gitee.io/vant/v3/#/zh-CN/advanced-usage#di-bu-an-quan-qu-gua-pei)
+
+```js
+<!-- 在 head 标签中添加 meta 标签，并设置 viewport-fit=cover 值 -->
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover"
+/>
+<!-- 开启顶部安全区适配 -->
+<van-nav-bar safe-area-inset-top />
+
+<!-- 开启底部安全区适配 -->
+<van-number-keyboard safe-area-inset-bottom />
+```
+
+如果不用 vant 中的适配，也可以自己写，我在 scss 中写了通用样式
+
+```scss
+.fixIphonex {
+  padding-bottom: $safe-bottom !important;
+  &::after {
+    content: '';
+    position: fixed;
+    bottom: 0 !important;
+    left: 0;
+    height: calc(#{$safe-bottom} + 1px);
+    width: 100%;
+    background: #ffffff;
+  }
+}
+```
+
+[▲ 回顶部](#top)
 
 ## <span id="dyntitle">✅ 动态设置 title </span>
 
+[▲ 回顶部](#top)
+
 ## <span id="jssdk">✅ 配置 Jssdk </span>
 
+[▲ 回顶部](#top)
+
 ## <span id="createVue">✅ xxx </span>
+
+[▲ 回顶部](#top)

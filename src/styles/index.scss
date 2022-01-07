@@ -1,14 +1,13 @@
-@import "./reset.scss";
-@import "./variables.scss";
-@import "./mixin.scss";
+@import './reset.scss';
+@import './variables.scss';
+@import './mixin.scss';
 
 html,
 body,
 #app {
   height: 100%;
   color: #333333;
-  font-family: Arial, Helvetica, "STHeiti STXihei", "Microsoft YaHei", Tohoma,
-    sans-serif;
+  font-family: Arial, Helvetica, 'STHeiti STXihei', 'Microsoft YaHei', Tohoma, sans-serif;
   background-color: $background-color;
 }
 
@@ -23,7 +22,7 @@ body,
 .fixIphonex {
   padding-bottom: $safe-bottom !important;
   &::after {
-    content: "";
+    content: '';
     position: fixed;
     bottom: 0 !important;
     left: 0;
@@ -42,7 +41,7 @@ body,
   .bottom-button-box {
     bottom: env(safe-area-inset-bottom); // 这里是重点
     &:after {
-      content: "";
+      content: '';
       height: env(safe-area-inset-bottom); // 这里是重点
       position: absolute;
       top: 100%;
