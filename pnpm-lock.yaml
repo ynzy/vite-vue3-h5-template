@@ -14,6 +14,7 @@ specifiers:
   mockjs: ^1.1.0
   pinia: ^2.0.9
   pinia-plugin-persistedstate: ^1.0.3
+  postcss-px-to-viewport: ^1.1.1
   prettier: ^2.5.1
   sass: ^1.46.0
   typescript: ~4.5.4
@@ -44,6 +45,7 @@ devDependencies:
   eslint: 8.6.0
   eslint-plugin-vue: 8.2.0_eslint@8.6.0
   mockjs: 1.1.0
+  postcss-px-to-viewport: 1.1.1
   prettier: 2.5.1
   sass: 1.46.0
   typescript: 4.5.4
@@ -2242,6 +2244,13 @@ packages:
       vue: 3.2.26
       vue-demi: 0.12.1_vue@3.2.26
     dev: false
+
+  /postcss-px-to-viewport/1.1.1:
+    resolution: {integrity: sha512-2x9oGnBms+e0cYtBJOZdlwrFg/mLR4P1g2IFu7jYKvnqnH/HLhoKyareW2Q/x4sg0BgklHlP1qeWo2oCyPm8FQ==}
+    dependencies:
+      object-assign: 4.1.1
+      postcss: 8.4.5
+    dev: true
 
   /postcss/8.4.5:
     resolution: {integrity: sha512-jBDboWM8qpaqwkMwItqTQTiFikhs/67OYVvblFFTM7MrZjt6yMKd6r2kgXizEbTTljacm4NldIlZnhbjr84QYg==}

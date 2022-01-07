@@ -22,12 +22,16 @@ console.log(route.meta)
 </template>
 <style lang="scss" scoped>
 .layout-tabbar {
+  display: flex;
+  flex-wrap: wrap;
   a {
     display: inline-block;
+    font-size: 14px;
     margin: 10px;
     padding: 5px;
     color: #000;
     background: rgb(0, 225, 255);
+    box-sizing: border-box;
   }
 }
 </style>
