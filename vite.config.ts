@@ -4,6 +4,8 @@ import { defineConfig, ConfigEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { viteMockServe } from 'vite-plugin-mock'
+import styleImport, { VantResolve } from 'vite-plugin-style-import'
+
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }: ConfigEnv) => {
   const isBuild = command === 'build'
@@ -11,6 +13,9 @@ export default defineConfig(({ command, mode }: ConfigEnv) => {
     plugins: [
       vue(),
       vueJsx(),
+      styleImport({
+        resolves: [VantResolve()]
+      }),
       viteMockServe({
         ignore: /^_/,
         mockPath: 'mock',

@@ -1,17 +1,20 @@
 # 项目介绍
 
-🎉基于 vite2 + Vue3.2 + TypeScript + pinia + mock + sass + vantUI + rem适配 + axios封装 的基础模版
+🎉 基于 vite2 + Vue3.2 + TypeScript + pinia + mock + sass + vantUI + rem 适配 + axios 封装 的基础模版
 
 [查看 demo](https://vite-vue3-h5-template.vercel.app/) 建议手机端查看
 
-##  Node 版本要求
+## Node 版本要求
+
 Vue CLI 需要 Node.js 8.9 或更高版本 (推荐 8.11.0+)。你可以使用 nvm 或 nvm-windows 在同一台电脑中管理多个 Node 版本。
 
 本示例 Node.js v14.17.0
 
 ## 项目安装/启动
-* 本项目采用 pnpm 包管理器,如果没有请先安装 pnpm
-* 使用其他包管理器请删除 `pnpm-lock.yaml`
+
+- 本项目采用 pnpm 包管理器,如果没有请先安装 pnpm
+- 使用其他包管理器请删除 `pnpm-lock.yaml`
+
 ```js
 npm i -g pnpm // 全局安装 pnpm
 pnpm install // 安装依赖
@@ -42,8 +45,9 @@ pnpm preview  // 本地预览打包的项目
 - [√ 配置 Jssdk](#jssdk)
 
 ## <span id="createVue">✅ 使用 create-vue 初始化项目 </span>
-* 文档：https://github.com/vuejs/create-vue
-* 如果想从 0 到 1 手动搭建基于 vite 的基础模版，可查看[vite-vue3-template](https://github.com/ynzy/vite-vue3-template)
+
+- 文档：https://github.com/vuejs/create-vue
+- 如果想从 0 到 1 手动搭建基于 vite 的基础模版，可查看[vite-vue3-template](https://github.com/ynzy/vite-vue3-template)
 
 ```js
 npm init vue@3
@@ -59,7 +63,9 @@ Vue.js - The Progressive JavaScript Framework
 ✔ Add ESLint for code quality? …  Yes
 ✔ Add Prettier for code formatting? …  Yes
 ```
-* 初始化项目包含
+
+- 初始化项目包含
+
 ```js
 - Vite
 - Vue3.2
@@ -71,6 +77,7 @@ Vue.js - The Progressive JavaScript Framework
 - Prettier
 - @types/node // 识别 nodejs 内置模块
 ```
+
 ## <span id="ip">✅ 配置 ip 访问项目 </span>
 
 - vite 启动后出现 “ Network: use --host to expose ”
@@ -103,7 +110,9 @@ vite v2.3.7 dev server running at:
   > Local:    http://localhost:3000/
   > Network:  http://192.168.199.127:3000/
 ```
+
 ## <span id="env">✅ 配置多环境变量 </span>
+
 - 文档：https://cn.vitejs.dev/guide/env-and-mode.html
 
 * 在生产环境，会把 import.meta.env 的值转换成对应真正的值
@@ -165,8 +174,11 @@ interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
 ```
+
 ## <span id="alias">✅ 配置 alias 别名 </span>
-* 项目初始化已经配置好了一个 src 别名
+
+- 项目初始化已经配置好了一个 src 别名
+
 ```js
 import { fileURLToPath } from 'url'
 
@@ -176,7 +188,9 @@ resolve: {
     }
   },
 ```
+
 ## <span id="sass">✅ Sass 全局样式 </span>
+
 - 文档：https://cn.vitejs.dev/guide/features.html#css-pre-processors
 
 1. 安装依赖
@@ -236,10 +250,14 @@ css: {
     },
   },
 ```
+
 ## <span id="router">✅ Vue-router4 </span>
+
 - 文档：https://next.router.vuejs.org/zh/installation.html
 - composition-api 使用：https://next.router.vuejs.org/zh/guide/advanced/composition-api.html
+
 * 初始化项目集成了 vue-router，我们这里只做配置
+
 ```js
 // router/index.ts
 import { createRouter, createWebHistory } from 'vue-router'
@@ -252,6 +270,7 @@ const router = createRouter({
 
 export default router
 ```
+
 ```ts
 // router/router.config.ts
 import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router'
@@ -307,17 +326,21 @@ export const routes: Array<RouteRecordRaw> = [
   }
 ]
 ```
+
 ## <span id="pinia">✅ Pinia 状态管理 </span>
-* 初始化项目集成了 pinia ,我们这里只做配置
-- 文档：https://pinia.vuejs.org/
-- 参考资料：https://juejin.cn/post/7049196967770980389
-- Pinia 的特点：
+
+- 初始化项目集成了 pinia ,我们这里只做配置
+
+* 文档：https://pinia.vuejs.org/
+* 参考资料：https://juejin.cn/post/7049196967770980389
+* Pinia 的特点：
   - 完整的 typescript 的支持；
   - 足够轻量，压缩后的体积只有 1.6kb;
   - 去除 mutations，只有 state，getters，actions（这是我最喜欢的一个特点）；
   - actions 支持同步和异步；
   - 没有模块嵌套，只有 store 的概念，store 之间可以自由使用，更好的代码分割；
   - 无需手动添加 store，store 一旦创建便会自动添加；
+
 ### 安装依赖
 
 ```js
@@ -488,9 +511,12 @@ export const useUserStore = defineStore({
   }
 })
 ```
+
 ## <span id="prettier">✅ Eslint + Prettier 统一开发规范 </span>
-* 初始化项目集成了 eslint + prettier，我们这里只做配置
-* .eslintrc.js
+
+- 初始化项目集成了 eslint + prettier，我们这里只做配置
+- .eslintrc.js
+
 ```js
 /* eslint-env node */
 require('@rushstack/eslint-patch/modern-module-resolution')
@@ -514,42 +540,47 @@ module.exports = {
   }
 }
 ```
-* .prettier.js
+
+- .prettier.js
+
 ```js
 module.exports = {
-    // 定制格式化要求
-    overrides: [
-        {
-            files: '.prettierrc',
-            options: {
-                parser: 'json'
-            }
-        }
-    ],
-    printWidth: 100, // 一行最多 100 字符
-    tabWidth: 2, // 使用 4 个空格缩进
-    semi: false, // 行尾需要有分号
-    singleQuote: true, // 使用单引号而不是双引号
-    useTabs: false, // 用制表符而不是空格缩进行
-    quoteProps: 'as-needed', // 仅在需要时在对象属性两边添加引号
-    jsxSingleQuote: false, // 在 JSX 中使用单引号而不是双引号
-    trailingComma: 'none', // 末尾不需要逗号
-    bracketSpacing: true, // 大括号内的首尾需要空格
-    bracketSameLine: false, // 将多行 HTML（HTML、JSX、Vue、Angular）元素反尖括号需要换行
-    arrowParens: 'always', // 箭头函数，只有一个参数的时候，也需要括号 avoid
-    rangeStart: 0, // 每个文件格式化的范围是开头-结束
-    rangeEnd: Infinity, // 每个文件格式化的范围是文件的全部内容
-    requirePragma: false, // 不需要写文件开头的 @prettier
-    insertPragma: false, // 不需要自动在文件开头插入 @prettier
-    proseWrap: 'preserve', // 使用默认的折行标准 always
-    htmlWhitespaceSensitivity: 'css', // 根据显示样式决定 html 要不要折行
-    vueIndentScriptAndStyle: false, //（默认值）对于 .vue 文件，不缩进 <script> 和 <style> 里的内容
-    endOfLine: 'lf', // 换行符使用 lf 在Linux和macOS以及git存储库内部通用\n
-    embeddedLanguageFormatting: 'auto' //（默认值）允许自动格式化内嵌的代码块
-};
+  // 定制格式化要求
+  overrides: [
+    {
+      files: '.prettierrc',
+      options: {
+        parser: 'json'
+      }
+    }
+  ],
+  printWidth: 100, // 一行最多 100 字符
+  tabWidth: 2, // 使用 4 个空格缩进
+  semi: false, // 行尾需要有分号
+  singleQuote: true, // 使用单引号而不是双引号
+  useTabs: false, // 用制表符而不是空格缩进行
+  quoteProps: 'as-needed', // 仅在需要时在对象属性两边添加引号
+  jsxSingleQuote: false, // 在 JSX 中使用单引号而不是双引号
+  trailingComma: 'none', // 末尾不需要逗号
+  bracketSpacing: true, // 大括号内的首尾需要空格
+  bracketSameLine: false, // 将多行 HTML（HTML、JSX、Vue、Angular）元素反尖括号需要换行
+  arrowParens: 'always', // 箭头函数，只有一个参数的时候，也需要括号 avoid
+  rangeStart: 0, // 每个文件格式化的范围是开头-结束
+  rangeEnd: Infinity, // 每个文件格式化的范围是文件的全部内容
+  requirePragma: false, // 不需要写文件开头的 @prettier
+  insertPragma: false, // 不需要自动在文件开头插入 @prettier
+  proseWrap: 'preserve', // 使用默认的折行标准 always
+  htmlWhitespaceSensitivity: 'css', // 根据显示样式决定 html 要不要折行
+  vueIndentScriptAndStyle: false, //（默认值）对于 .vue 文件，不缩进 <script> 和 <style> 里的内容
+  endOfLine: 'lf', // 换行符使用 lf 在Linux和macOS以及git存储库内部通用\n
+  embeddedLanguageFormatting: 'auto' //（默认值）允许自动格式化内嵌的代码块
+}
 ```
+
 ## <span id="husky">✅ husky + lint-staged 提交校验 </span>
+
 ## <span id="mock">✅ 使用 Mock 数据 </span>
+
 - 文档：https://github.com/vbenjs/vite-plugin-mock
 - mock 数据目前测试，在开发环境 XHR 和 fetch 都生效，生产环境只能使用 XHR 类型请求库调用，fetch 不生效
 
@@ -558,6 +589,7 @@ module.exports = {
 ```js
 pnpm i -D vite-plugin-mock mockjs @types/mockjs
 ```
+
 ### 2. 生产环境 相关封装
 
 ```ts
@@ -693,7 +725,9 @@ export default ({ mode, command }: ConfigEnv): UserConfigExport => {
   })
 }
 ```
+
 ## <span id="proxy">✅ 配置 proxy 跨域 </span>
+
 ```js
 server: {
   host: '0.0.0.0',
@@ -723,10 +757,97 @@ server: {
   }
 },
 ```
+
 ## <span id="axios">✅ Axios 封装及接口管理 </span>
+
 ## <span id="vant">✅ VantUI 组件按需加载 </span>
+
+- 文档：https://vant-contrib.gitee.io/vant/v3/#/zh-CN/quickstart
+
+### 1. 安装依赖
+
+```js
+pnpm add vant@3
+pnpm add vite-plugin-style-import -D
+```
+
+### 2. 按需引入配置
+
+- vite.config.ts
+
+```js
+import vue from '@vitejs/plugin-vue'
+import styleImport, { VantResolve } from 'vite-plugin-style-import'
+
+export default {
+  plugins: [
+    vue(),
+    styleImport({
+      resolves: [VantResolve()]
+    })
+  ]
+}
+```
+
+- plugins/vant.ts
+
+```ts
+import { App as VM } from 'vue'
+import { Button, Cell, CellGroup, Icon, Tabbar, TabbarItem, Image as VanImage } from 'vant'
+
+const plugins = [Button, Icon, Cell, CellGroup, Tabbar, TabbarItem, VanImage]
+
+export const vantPlugins = {
+  install: function (vm: VM) {
+    plugins.forEach((item) => {
+      vm.component(item.name, item)
+    })
+  }
+}
+```
+
+- main.ts
+
+```ts
+// 全局引入按需引入UI库 vant
+import { vantPlugins } from './plugins/vant'
+app.use(vantPlugins)
+```
+
+### 3. 在 <script setup> 中可以直接使用 Vant 组件，不需要进行组件注册。
+
+- 如果使用这种方式，就不需要注册上面的 `plugins/vant.ts` 了
+
+```js
+<script setup>
+  import { Button } from 'vant';
+</script>
+
+<template>
+  <Button />
+</template>
+```
+
+### 4. 在 JSX 和 TSX 中可以直接使用 Vant 组件，不需要进行组件注册。
+
+- 如果使用这种方式，就不需要注册上面的 `plugins/vant.ts` 了
+
+```ts
+import { Button } from 'vant'
+
+export default {
+  render() {
+    return <Button />
+  }
+}
+```
+
 ## <span id="rem">✅ rem 适配方案 </span>
+
 ## <span id="phonex">✅ 适配苹果底部安全距离 </span>
+
 ## <span id="dyntitle">✅ 动态设置 title </span>
+
 ## <span id="jssdk">✅ 配置 Jssdk </span>
+
 ## <span id="createVue">✅ xxx </span>
