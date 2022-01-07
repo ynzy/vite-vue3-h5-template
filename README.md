@@ -237,7 +237,78 @@ css: {
   },
 ```
 ## <span id="router">✅ Vue-router4 </span>
+- 文档：https://next.router.vuejs.org/zh/installation.html
+- composition-api 使用：https://next.router.vuejs.org/zh/guide/advanced/composition-api.html
+* 初始化项目集成了 vue-router，我们这里只做配置
+```js
+// router/index.ts
+import { createRouter, createWebHistory } from 'vue-router'
+import { routes } from './router.config'
+
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes
+})
+
+export default router
+```
+```ts
+// router/router.config.ts
+import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router'
+import Layout from '@/views/layouts/index.vue'
+export const routes: Array<RouteRecordRaw> = [
+  {
+    path: '/',
+    name: 'Home',
+    redirect: '/home',
+    meta: {
+      title: '首页',
+      keepAlive: false
+    },
+    component: Layout,
+    children: [
+      {
+        path: '/home',
+        name: 'Home',
+        component: () => import('@/views/Home.vue'),
+        meta: { title: '首页', keepAlive: false, showTab: true }
+      },
+      {
+        path: '/tsx',
+        name: 'Tsx',
+        component: () => import('@/test/demo'),
+        meta: { title: '测试tsx', keepAlive: false, showTab: true }
+      },
+      {
+        path: '/static',
+        name: 'Static',
+        component: () => import('@/test/testStatic.vue'),
+        meta: { title: '测试静态资源', keepAlive: false, showTab: true }
+      },
+      {
+        path: '/cssModel',
+        name: 'CssModel',
+        component: () => import('@/test/testCssModel'),
+        meta: { title: '测试css-model', keepAlive: false, showTab: true }
+      },
+      {
+        path: '/mockAxios',
+        name: 'MockAxios',
+        component: () => import('@/test/testMockAxios'),
+        meta: { title: '测试mock-axios', keepAlive: false, showTab: true }
+      },
+      {
+        path: '/pinia',
+        name: 'Pinia',
+        component: () => import('@/test/testPinia.vue'),
+        meta: { title: '测试pinia', keepAlive: false, showTab: true }
+      }
+    ]
+  }
+]
+```
 ## <span id="pinia">✅ Pinia 状态管理 </span>
+
 ## <span id="prettier">✅ Eslint + Prettier 统一开发规范 </span>
 * 初始化项目集成了 eslint + prettier，我们这里只做配置
 * .eslintrc.js
