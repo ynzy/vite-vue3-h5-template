@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@rushstack/eslint-patch': ^1.1.0
+  '@types/mockjs': ^1.0.4
   '@types/node': ^16.11.17
   '@vitejs/plugin-vue': ^2.0.1
   '@vitejs/plugin-vue-jsx': ^1.3.3
@@ -10,12 +11,14 @@ specifiers:
   axios: ^0.24.0
   eslint: ^8.5.0
   eslint-plugin-vue: ^8.2.0
+  mockjs: ^1.1.0
   pinia: ^2.0.9
   pinia-plugin-persistedstate: ^1.0.3
   prettier: ^2.5.1
   sass: ^1.46.0
   typescript: ~4.5.4
   vite: ^2.7.7
+  vite-plugin-mock: ^2.9.6
   vue: ^3.2.26
   vue-router: ^4.0.12
   vue-tsc: ^0.29.8
@@ -29,6 +32,7 @@ dependencies:
 
 devDependencies:
   '@rushstack/eslint-patch': 1.1.0
+  '@types/mockjs': 1.0.4
   '@types/node': 16.11.19
   '@vitejs/plugin-vue': 2.0.1_vite@2.7.10+vue@3.2.26
   '@vitejs/plugin-vue-jsx': 1.3.3
@@ -36,10 +40,12 @@ devDependencies:
   '@vue/eslint-config-typescript': 10.0.0_57f850728139557a3a27f1248f77f964
   eslint: 8.6.0
   eslint-plugin-vue: 8.2.0_eslint@8.6.0
+  mockjs: 1.1.0
   prettier: 2.5.1
   sass: 1.46.0
   typescript: 4.5.4
   vite: 2.7.10_sass@1.46.0
+  vite-plugin-mock: 2.9.6_mockjs@1.1.0+vite@2.7.10
   vue-tsc: 0.29.8_typescript@4.5.4
 
 packages:
@@ -407,6 +413,31 @@ packages:
       fastq: 1.13.0
     dev: true
 
+  /@rollup/plugin-node-resolve/13.1.3:
+    resolution: {integrity: sha512-BdxNk+LtmElRo5d06MGY4zoepyrXX1tkzX2hrnPEZ53k78GuOMWLqmJDGIIOPwVRIFZrLQOo+Yr6KtCuLIA0AQ==}
+    engines: {node: '>= 10.0.0'}
+    peerDependencies:
+      rollup: ^2.42.0
+    dependencies:
+      '@rollup/pluginutils': 3.1.0
+      '@types/resolve': 1.17.1
+      builtin-modules: 3.2.0
+      deepmerge: 4.2.2
+      is-module: 1.0.0
+      resolve: 1.21.0
+    dev: true
+
+  /@rollup/pluginutils/3.1.0:
+    resolution: {integrity: sha1-cGtFJO5tyLEDs8mVUz5a1oDAK5s=}
+    engines: {node: '>= 8.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0
+    dependencies:
+      '@types/estree': 0.0.39
+      estree-walker: 1.0.1
+      picomatch: 2.3.1
+    dev: true
+
   /@rollup/pluginutils/4.1.2:
     resolution: {integrity: sha512-ROn4qvkxP9SyPeHaf7uQC/GPFY6L/OWy9+bd9AwcjOAWQwxRscoEyAUD8qCY5o5iL4jqQwoLk2kaTKJPb/HwzQ==}
     engines: {node: '>= 8.0.0'}
@@ -419,12 +450,26 @@ packages:
     resolution: {integrity: sha1-f2mCVKrfkh5I3ajAprMEAmuKkyM=}
     dev: true
 
+  /@types/estree/0.0.39:
+    resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}
+    dev: true
+
   /@types/json-schema/7.0.9:
     resolution: {integrity: sha1-l+3JA36gw4WFMgsolk3eOznkZg0=}
     dev: true
 
+  /@types/mockjs/1.0.4:
+    resolution: {integrity: sha1-5waVHV4ztPCku3Ox+LEk4m8IHeA=}
+    dev: true
+
   /@types/node/16.11.19:
     resolution: {integrity: sha512-BPAcfDPoHlRQNKktbsbnpACGdypPFBuX4xQlsWDE7B8XXcfII+SpOLay3/qZmCLb39kV5S1RTYwXdkx2lwLYng==}
+    dev: true
+
+  /@types/resolve/1.17.1:
+    resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
+    dependencies:
+      '@types/node': 16.11.19
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.8.1_bd2fd93dbcc607ad2f21b784bccfe0c8:
@@ -921,6 +966,11 @@ packages:
       picocolors: 1.0.0
     dev: true
 
+  /builtin-modules/3.2.0:
+    resolution: {integrity: sha1-RdXbmefuXmvE82LgCL+RerUEmIc=}
+    engines: {node: '>=6'}
+    dev: true
+
   /call-bind/1.0.2:
     resolution: {integrity: sha1-sdTonmiBGcPJqQOtMKuy9qkZvjw=}
     dependencies:
@@ -1001,8 +1051,23 @@ packages:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
     dev: true
 
+  /commander/8.3.0:
+    resolution: {integrity: sha1-SDfqGy2me5xhamevuw+v7lZ7ymY=}
+    engines: {node: '>= 12'}
+    dev: true
+
   /concat-map/0.0.1:
     resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
+    dev: true
+
+  /connect/3.7.0:
+    resolution: {integrity: sha512-ZqRXc+tZukToSNmh5C2iWMSoV3X1YUcPbqEM4DkEG5tNQXrQUZCNVGGv3IuicnkMtPfGf3Xtp8WCXs295iQ1pQ==}
+    engines: {node: '>= 0.10.0'}
+    dependencies:
+      debug: 2.6.9
+      finalhandler: 1.1.2
+      parseurl: 1.3.3
+      utils-merge: 1.0.1
     dev: true
 
   /constantinople/4.0.1:
@@ -1031,6 +1096,12 @@ packages:
     resolution: {integrity: sha1-/utarokCC7OJ4fY2aaXtSQ45HKo=}
     dev: false
 
+  /debug/2.6.9:
+    resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
+    dependencies:
+      ms: 2.0.0
+    dev: true
+
   /debug/4.3.3:
     resolution: {integrity: sha512-/zxw5+vh1Tfv+4Qn7a5nsbcJKPaSvCDhojn6FEl9vupwK2VCSDtEiEtqr8DFtzYFOdz63LBkxec7DYuc2jon6Q==}
     engines: {node: '>=6.0'}
@@ -1045,6 +1116,11 @@ packages:
 
   /deep-is/0.1.4:
     resolution: {integrity: sha1-pvLc5hL63S7x9Rm3NVHxfoUZmDE=}
+    dev: true
+
+  /deepmerge/4.2.2:
+    resolution: {integrity: sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==}
+    engines: {node: '>=0.10.0'}
     dev: true
 
   /dir-glob/3.0.1:
@@ -1092,6 +1168,10 @@ packages:
       domhandler: 4.3.0
     dev: true
 
+  /ee-first/1.1.1:
+    resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
+    dev: true
+
   /electron-to-chromium/1.4.37:
     resolution: {integrity: sha512-XIvFB1omSAxYgHYX48sC+HR8i/p7lx7R+0cX9faElg1g++h9IilCrJ12+bQuY+d96Wp7zkBiJwMOv+AhLtLrTg==}
     dev: true
@@ -1101,6 +1181,11 @@ packages:
     dependencies:
       '@emmetio/abbreviation': 2.2.2
       '@emmetio/css-abbreviation': 2.1.4
+    dev: true
+
+  /encodeurl/1.0.2:
+    resolution: {integrity: sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=}
+    engines: {node: '>= 0.8'}
     dev: true
 
   /enquirer/2.3.6:
@@ -1255,6 +1340,12 @@ packages:
     dev: true
     optional: true
 
+  /esbuild/0.11.3:
+    resolution: {integrity: sha1-tXFluQe+T/umUfZFBTjOjYwdXrA=}
+    hasBin: true
+    requiresBuild: true
+    dev: true
+
   /esbuild/0.13.15:
     resolution: {integrity: sha1-21aogWbuNz+H27LYeY/0SeBFDN8=}
     hasBin: true
@@ -1282,6 +1373,10 @@ packages:
   /escalade/3.1.1:
     resolution: {integrity: sha1-2M/ccACWXFoBdLSoLqpcBVJ0LkA=}
     engines: {node: '>=6'}
+    dev: true
+
+  /escape-html/1.0.3:
+    resolution: {integrity: sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=}
     dev: true
 
   /escape-string-regexp/1.0.5:
@@ -1459,6 +1554,10 @@ packages:
     engines: {node: '>=4.0'}
     dev: true
 
+  /estree-walker/1.0.1:
+    resolution: {integrity: sha512-1fMXF3YP4pZZVozF8j/ZLfvnR8NSIljt56UhbZ5PeeDmmGHpgpdwQt7ITlGvYaQukCvuBRMLEiKiYC+oeIg4cg==}
+    dev: true
+
   /estree-walker/2.0.2:
     resolution: {integrity: sha1-UvAQF4wqTBF6d1fP6UKtt9LaTKw=}
 
@@ -1512,6 +1611,19 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       to-regex-range: 5.0.1
+    dev: true
+
+  /finalhandler/1.1.2:
+    resolution: {integrity: sha512-aAWcW57uxVNrQZqFXjITpW3sIUQmHGG3qSb9mUah9MgMC4NeWhNOlNjXEYq3HjRAvL6arUviZGGJsBg6z0zsWA==}
+    engines: {node: '>= 0.8'}
+    dependencies:
+      debug: 2.6.9
+      encodeurl: 1.0.2
+      escape-html: 1.0.3
+      on-finished: 2.3.0
+      parseurl: 1.3.3
+      statuses: 1.5.0
+      unpipe: 1.0.0
     dev: true
 
   /flat-cache/3.0.4:
@@ -1735,6 +1847,10 @@ packages:
       is-extglob: 2.1.1
     dev: true
 
+  /is-module/1.0.0:
+    resolution: {integrity: sha1-Mlj7afeMFNW4FdZkM2tM/7ZEFZE=}
+    dev: true
+
   /is-number/7.0.0:
     resolution: {integrity: sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==}
     engines: {node: '>=0.12.0'}
@@ -1860,6 +1976,17 @@ packages:
     resolution: {integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==}
     dev: true
 
+  /mockjs/1.1.0:
+    resolution: {integrity: sha512-eQsKcWzIaZzEZ07NuEyO4Nw65g0hdWAyurVol1IPl1gahRwY+svqzfgfey8U8dahLwG44d6/RwEzuK52rSa/JQ==}
+    hasBin: true
+    dependencies:
+      commander: 8.3.0
+    dev: true
+
+  /ms/2.0.0:
+    resolution: {integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=}
+    dev: true
+
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
     dev: true
@@ -1887,6 +2014,13 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /on-finished/2.3.0:
+    resolution: {integrity: sha1-IPEzZIGwg811M3mSoWlxqi2QaUc=}
+    engines: {node: '>= 0.8'}
+    dependencies:
+      ee-first: 1.1.1
+    dev: true
+
   /once/1.4.0:
     resolution: {integrity: sha1-WDsap3WWHUsROsF9nFC6753Xa9E=}
     dependencies:
@@ -1912,6 +2046,11 @@ packages:
       callsites: 3.1.0
     dev: true
 
+  /parseurl/1.3.3:
+    resolution: {integrity: sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==}
+    engines: {node: '>= 0.8'}
+    dev: true
+
   /path-is-absolute/1.0.1:
     resolution: {integrity: sha1-F0uSaHNVNP+8es5r9TpanhtcX18=}
     engines: {node: '>=0.10.0'}
@@ -1924,6 +2063,10 @@ packages:
 
   /path-parse/1.0.7:
     resolution: {integrity: sha1-+8EUtgykKzDZ2vWFjkvWi77bZzU=}
+    dev: true
+
+  /path-to-regexp/6.2.0:
+    resolution: {integrity: sha1-97OAMzYQTDRoia3s5hRmkjBkXzg=}
     dev: true
 
   /path-type/4.0.0:
@@ -2224,6 +2367,11 @@ packages:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
     dev: false
 
+  /statuses/1.5.0:
+    resolution: {integrity: sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=}
+    engines: {node: '>= 0.6'}
+    dev: true
+
   /strip-ansi/6.0.1:
     resolution: {integrity: sha1-nibGPTD1NEPpSJSVshBdN7Z6hdk=}
     engines: {node: '>=8'}
@@ -2311,6 +2459,11 @@ packages:
     hasBin: true
     dev: true
 
+  /unpipe/1.0.0:
+    resolution: {integrity: sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=}
+    engines: {node: '>= 0.8'}
+    dev: true
+
   /upath/2.0.1:
     resolution: {integrity: sha1-UMc96mjW9rmQ9R0nnOYIFmXWGos=}
     engines: {node: '>=4'}
@@ -2322,8 +2475,36 @@ packages:
       punycode: 2.1.1
     dev: true
 
+  /utils-merge/1.0.1:
+    resolution: {integrity: sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=}
+    engines: {node: '>= 0.4.0'}
+    dev: true
+
   /v8-compile-cache/2.3.0:
     resolution: {integrity: sha1-LeGWGMZtwkfc+2+ZM4A12CRaLO4=}
+    dev: true
+
+  /vite-plugin-mock/2.9.6_mockjs@1.1.0+vite@2.7.10:
+    resolution: {integrity: sha1-BN0j3muqBS+qW5rTF1FMkNYgXiU=}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      mockjs: '>=1.1.0'
+      vite: '>=2.0.0'
+    dependencies:
+      '@rollup/plugin-node-resolve': 13.1.3
+      '@types/mockjs': 1.0.4
+      chalk: 4.1.2
+      chokidar: 3.5.2
+      connect: 3.7.0
+      debug: 4.3.3
+      esbuild: 0.11.3
+      fast-glob: 3.2.7
+      mockjs: 1.1.0
+      path-to-regexp: 6.2.0
+      vite: 2.7.10_sass@1.46.0
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
     dev: true
 
   /vite/2.7.10_sass@1.46.0:

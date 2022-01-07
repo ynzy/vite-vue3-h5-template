@@ -550,6 +550,149 @@ module.exports = {
 ```
 ## <span id="husky">✅ husky + lint-staged 提交校验 </span>
 ## <span id="mock">✅ 使用 Mock 数据 </span>
+- 文档：https://github.com/vbenjs/vite-plugin-mock
+- mock 数据目前测试，在开发环境 XHR 和 fetch 都生效，生产环境只能使用 XHR 类型请求库调用，fetch 不生效
+
+### 1. 安装依赖
+
+```js
+pnpm i -D vite-plugin-mock mockjs @types/mockjs
+```
+### 2. 生产环境 相关封装
+
+```ts
+// mock/_createProductionServer.ts
+import { createProdMockServer } from 'vite-plugin-mock/es/createProdMockServer'
+
+const modules = import.meta.globEager('./**/*.ts')
+
+const mockModules: any[] = []
+Object.keys(modules).forEach((key) => {
+  if (key.includes('/_')) {
+    return
+  }
+  mockModules.push(...modules[key].default)
+})
+
+/**
+ * Used in a production environment. Need to manually import all modules
+ */
+export function setupProdMockServer() {
+  createProdMockServer(mockModules)
+}
+```
+
+```ts
+// mock/_util.ts
+// Interface data format used to return a unified format
+
+import { Recordable } from 'vite-plugin-mock'
+
+export function resultSuccess<T = Recordable>(result: T, { message = 'ok' } = {}) {
+  return {
+    code: 0,
+    result,
+    message,
+    type: 'success'
+  }
+}
+
+export function resultPageSuccess<T = any>(
+  page: number,
+  pageSize: number,
+  list: T[],
+  { message = 'ok' } = {}
+) {
+  const pageData = pagination(page, pageSize, list)
+
+  return {
+    ...resultSuccess({
+      items: pageData,
+      total: list.length
+    }),
+    message
+  }
+}
+
+export function resultError(message = 'Request failed', { code = -1, result = null } = {}) {
+  return {
+    code,
+    result,
+    message,
+    type: 'error'
+  }
+}
+
+export function pagination<T = any>(pageNo: number, pageSize: number, array: T[]): T[] {
+  const offset = (pageNo - 1) * Number(pageSize)
+  const ret =
+    offset + Number(pageSize) >= array.length
+      ? array.slice(offset, array.length)
+      : array.slice(offset, offset + Number(pageSize))
+  return ret
+}
+
+export interface requestParams {
+  method: string
+  body: any
+  headers?: { authorization?: string }
+  query: any
+}
+
+/**
+ * @description 本函数用于从request数据中获取token，请根据项目的实际情况修改
+ *
+ */
+export function getRequestToken({ headers }: requestParams): string | undefined {
+  return headers?.authorization
+}
+```
+
+```ts
+// mock/sys/user
+import { MockMethod } from 'vite-plugin-mock'
+import { resultError, resultSuccess, getRequestToken, requestParams } from '../_util'
+
+export default [
+  {
+    url: '/basic-api/getUserInfo',
+    method: 'get',
+    response: (request: requestParams) => {
+      console.log('----请求了getUserInfo---')
+
+      return resultSuccess({
+        name: '章三',
+        age: 40,
+        sex: '男'
+      })
+    }
+  }
+] as MockMethod[]
+```
+
+### 3. 修改 vite.config.ts 配置
+
+```ts
+export default ({ mode, command }: ConfigEnv): UserConfigExport => {
+  const isBuild = command === 'build'
+  return defineConfig({
+    plugins: [
+      viteMockServe({
+        ignore: /^_/, // 正则匹配忽略的文件
+        mockPath: 'mock', // 设置mock.ts 文件的存储文件夹
+        localEnabled: true, // 设置是否启用本地 xxx.ts 文件，不要在生产环境中打开它.设置为 false 将禁用 mock 功能
+        prodEnabled: true, // 设置生产环境是否启用 mock 功能
+        watchFiles: true, // 设置是否监视mockPath对应的文件夹内文件中的更改
+        // 代码注入
+        injectCode: ` 
+          import { setupProdMockServer } from '../mock/_createProductionServer';
+          setupProdMockServer();
+        `
+      })
+    ]
+  })
+}
+```
 ## <span id="proxy">✅ 配置 proxy 跨域 </span>
 ## <span id="axios">✅ Axios 封装及接口管理 </span>
 ## <span id="vant">✅ VantUI 组件按需加载 </span>
