@@ -1,6 +1,6 @@
 let i = 0
 let timer
-function timedCount() {
+export function timedCount() {
   i = i + 1
   postMessage(i)
   timer = setTimeout(timedCount, 500)
