@@ -308,7 +308,186 @@ export const routes: Array<RouteRecordRaw> = [
 ]
 ```
 ## <span id="pinia">✅ Pinia 状态管理 </span>
+* 初始化项目集成了 pinia ,我们这里只做配置
+- 文档：https://pinia.vuejs.org/
+- 参考资料：https://juejin.cn/post/7049196967770980389
+- Pinia 的特点：
+  - 完整的 typescript 的支持；
+  - 足够轻量，压缩后的体积只有 1.6kb;
+  - 去除 mutations，只有 state，getters，actions（这是我最喜欢的一个特点）；
+  - actions 支持同步和异步；
+  - 没有模块嵌套，只有 store 的概念，store 之间可以自由使用，更好的代码分割；
+  - 无需手动添加 store，store 一旦创建便会自动添加；
+### 安装依赖
 
+```js
+pnpm i pinia
+```
+
+### 创建 Store
+
+- 新建 src/store 目录并在其下面创建 index.ts，导出 store
+
+```js
+// src/store/index.ts
+
+import { createPinia } from 'pinia'
+
+const store = createPinia()
+
+export default store
+```
+
+### 在 main.ts 中引入并使用
+
+```ts
+// src/main.ts
+
+import { createApp } from 'vue'
+import App from './App.vue'
+import store from './store'
+
+const app = createApp(App)
+app.use(store)
+```
+
+### 定义 State
+
+- 在 src/store 下面创建一个 user.ts
+
+```ts
+//src/store/user.ts
+
+import { defineStore } from 'pinia'
+import { useAppStore } from './app'
+
+export const useUserStore = defineStore({
+  id: 'user',
+  state: () => {
+    return {
+      name: '张三',
+      age: 18
+    }
+  },
+  getters: {
+    fullName: (state) => {
+      return state.name + '丰'
+    }
+  },
+  actions: {
+    updateState(data: any) {
+      this.$state = data
+      this.updateAppConfig()
+    },
+    updateAppConfig() {
+      const appStore = useAppStore()
+      appStore.setData('app-update')
+    }
+  }
+})
+```
+
+```ts
+//src/store/app.ts
+import { defineStore } from 'pinia'
+
+export const useAppStore = defineStore({
+  id: 'app',
+  state: () => {
+    return {
+      config: 'app'
+    }
+  },
+  actions: {
+    setData(data: any) {
+      console.log(data)
+      this.config = data
+    }
+  }
+})
+```
+
+### 获取/更新 State
+
+```vue
+<script setup lang="ts">
+import { useUserStore } from '@/store/user'
+import { useAppStore } from '@/store/app'
+import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
+const userStore = useUserStore()
+const appStore = useAppStore()
+console.log(appStore.config)
+console.log(userStore)
+console.log(userStore.name)
+const name = computed(() => userStore.name)
+const { age } = storeToRefs(userStore)
+
+const updateUserState = () => {
+  const { name, age } = userStore.$state
+  userStore.updateState({
+    name: name + 1,
+    age: age + 1
+  })
+}
+</script>
+<template>
+  <div>姓名：{{ name }}</div>
+  <div>年龄：{{ age }}</div>
+  <div>计算的名字：{{ userStore.fullName }}</div>
+  <div>app的config: {{ appStore.config }}</div>
+  <button @click="updateUserState">更新数据</button>
+</template>
+
+<style lang="scss" scoped></style>
+```
+
+### 数据持久化
+
+- 文档：https://github.com/prazdevs/pinia-plugin-persistedstate
+
+* 插件 pinia-plugin-persistedstate 可以辅助实现数据持久化功能。
+* 数据默认存在 sessionStorage 里，并且会以 store 的 id 作为 key。
+
+* 安装依赖
+
+```ts
+pnpm i pinia-plugin-persistedstate
+```
+
+- 引用插件
+
+```ts
+// src/store/index.ts
+
+import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+const store = createPinia()
+store.use(piniaPluginPersistedstate)
+export default store
+```
+
+- 在对应的 store 里开启 persist 即可
+
+```ts
+export const useUserStore = defineStore({
+  id: 'user',
+
+  state: () => {
+    return {
+      name: '张三'
+    }
+  },
+
+  // 开启数据缓存
+  persist: {
+    key: 'user',
+    storage: sessionStorage, // 数据存储位置，默认为 localStorage
+    paths: ['name'], // 用于部分持久化状态的点表示法路径数组，表示不会持久化任何状态（默认为并保留整个状态）
+    overwrite: true
+  }
+})
+```
 ## <span id="prettier">✅ Eslint + Prettier 统一开发规范 </span>
 * 初始化项目集成了 eslint + prettier，我们这里只做配置
 * .eslintrc.js
