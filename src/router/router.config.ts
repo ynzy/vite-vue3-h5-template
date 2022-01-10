@@ -1,5 +1,6 @@
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/views/layouts/index.vue'
+import Home from '@/views/home/index.vue'
 export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -14,7 +15,8 @@ export const routes: Array<RouteRecordRaw> = [
       {
         path: '/home',
         name: 'Home',
-        component: () => import('@/views/tabBar/Home.vue'),
+        component: Home,
+        // component: () => import('@/views/tabBar/Home.vue'),
         meta: { title: '首页', keepAlive: false, showTab: true }
       },
       {
