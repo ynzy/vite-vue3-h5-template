@@ -1,10 +1,9 @@
-import { loadConfig } from '@/config'
+import { config } from '@/config'
 
 /**
  * 动态设置浏览器标题
  * @param title
  */
-export const setDocumentTitle = async (title?: string) => {
-  const config = await loadConfig()
+export const setDocumentTitle = (title?: string) => {
   document.title = title || config.title
 }
