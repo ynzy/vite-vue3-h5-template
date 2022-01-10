@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/views/layouts/index.vue'
-import Home from '@/views/home/index.vue'
+import Home from '@/views/tabBar/Home.vue'
 export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
