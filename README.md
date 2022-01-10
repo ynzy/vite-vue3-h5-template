@@ -43,7 +43,6 @@ pnpm preview  // 本地预览打包的项目
 - [√ 适配苹果底部安全距离](#phonex)
 - [√ 动态设置 title](#dyntitle)
 - [√ 配置 Jssdk](#jssdk)
-  [▲ 回顶部](#top)
 
 ## <span id="createVue">✅ 使用 create-vue 初始化项目 </span>
 
@@ -595,6 +594,31 @@ module.exports = {
 [▲ 回顶部](#top)
 
 ## <span id="husky">✅ husky + lint-staged 提交校验 </span>
+
+### 1. 安装依赖
+
+```js
+pnpm i -D husky lint-staged
+```
+
+### 2. 添加脚本命令
+
+```js
+npm set-script prepare "husky install"  // 在 package.json/scripts 中添加 "prepare": "husky install" 命令， 这个命令只在linux/uinx系统有效，win系统可以直接在scripts中添加命令
+npm run prepare  //  初始化husky,将 git hooks 钩子交由,husky执行， 会在根目录创建 .husky 文件夹
+npx husky add .husky/pre-commit "npx lint-staged" // pre-commit 执行 npx lint-staged 指令
+```
+
+### 3. 创建 .lintstagedrc.json
+
+```json
+{
+  "**/*.{js,ts,tsx,jsx,vue,scss,css}": [
+    "prettier --write \"src/**/*.ts\" \"src/**/*.vue\"",
+    "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix"
+  ]
+}
+```
 
 [▲ 回顶部](#top)
 

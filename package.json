@@ -10,7 +10,8 @@
     "preview": "npm run build && vite preview --port 5050",
     "preview:dist": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "lint:lint-staged": "lint-staged"
+    "lint:lint-staged": "lint-staged",
+    "prepare": "husky install"
   },
   "dependencies": {
     "axios": "^0.24.0",
@@ -31,6 +32,8 @@
     "autoprefixer": "^10.4.2",
     "eslint": "^8.5.0",
     "eslint-plugin-vue": "^8.2.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.7",
     "mockjs": "^1.1.0",
     "postcss-px-to-viewport": "^1.1.1",
     "prettier": "^2.5.1",
