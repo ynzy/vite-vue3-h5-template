@@ -1,7 +1,6 @@
 {
   "**/*.{js,ts,tsx,jsx,vue,scss,css}": [
     "prettier --write \"src/**/*.ts\" \"src/**/*.vue\"",
-    "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
-    "vue-tsc --noEmit"
+    "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix"
   ]
 }

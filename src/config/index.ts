@@ -8,8 +8,8 @@ export interface IConfig {
   APPSECRET?: string // 公众号appScript 一般放在服务器端
   $cdn: string // cdn公共资源路径
 }
-
-// 根据环境引入不同配置 process.env.NODE_ENV
-const model = await import('./env.' + import.meta.env.VITE_ENV)
-export const config: IConfig = model.default
-console.log(config)
+// 根据环境引入不同配置
+export async function loadConfig(): Promise<IConfig> {
+  const model = await import('./env.' + import.meta.env.VITE_ENV)
+  return model.default
+}
