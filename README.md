@@ -951,6 +951,28 @@ module.exports = {
 
 ## <span id="dyntitle">✅ 动态设置 title </span>
 
+```js
+// utils/index.ts
+import { config } from '@/config'
+
+/**
+ * 动态设置浏览器标题
+ * @param title
+ */
+export const setDocumentTitle = (title?: string) => {
+  document.title = title || config.title
+}
+```
+
+router/index.ts 使用
+
+```ts
+router.beforeEach((to, from, next) => {
+  setDocumentTitle(to.meta.title as string)
+  next()
+})
+```
+
 [▲ 回顶部](#top)
 
 ## <span id="jssdk">✅ 配置 Jssdk </span>

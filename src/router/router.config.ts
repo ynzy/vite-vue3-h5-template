@@ -1,4 +1,4 @@
-import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router'
+import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/views/layouts/index.vue'
 export const routes: Array<RouteRecordRaw> = [
   {

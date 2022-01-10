@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --mode development",
-    "test": "vite --mode test",
+    "stage": "vite --mode staging",
     "prod": "vite --mode production",
     "build": "vue-tsc --noEmit && vite build",
     "typecheck": "vue-tsc --noEmit",
