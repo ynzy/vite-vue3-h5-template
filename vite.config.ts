@@ -10,6 +10,7 @@ import styleImport, { VantResolve } from 'vite-plugin-style-import'
 export default defineConfig(({ command, mode }: ConfigEnv) => {
   const isBuild = command === 'build'
   return {
+    base: '/',
     plugins: [
       vue(),
       vueJsx(),
@@ -44,7 +45,7 @@ export default defineConfig(({ command, mode }: ConfigEnv) => {
       }
     },
     server: {
-      host: '0.0.0.0',
+      host: true,
       proxy: {
         // 字符串简写写法
         '/foo': 'http://localhost:4567',
