@@ -44,78 +44,17 @@ const fakeCodeList: any = {
   '2': ['2000', '4000', '6000']
 }
 export default [
-  // mock user login
   {
-    url: '/basic-api/login',
-    timeout: 200,
-    method: 'post',
-    response: ({ body }) => {
-      const { username, password } = body
-      const checkUser = createFakeUserList().find(
-        (item) => item.username === username && password === item.password
-      )
-      if (!checkUser) {
-        return resultError('Incorrect account or password！')
-      }
-      const { userId, username: _username, token, realName, desc, roles } = checkUser
-      return resultSuccess({
-        roles,
-        userId,
-        username: _username,
-        token,
-        realName,
-        desc
-      })
-    }
-  },
-  {
-    url: '/basic-api/getUserInfo',
+    url: '/user/info',
     method: 'get',
     response: (request: requestParams) => {
       // const token = getRequestToken(request);
       // if (!token) return resultError('Invalid token');
-      // const checkUser = createFakeUserList().find((item) => item.token === token);
-      // if (!checkUser) {
-      //   return resultError('The corresponding user information was not obtained!');
-      // }
-      // return resultSuccess(checkUser);
-      console.log('----请求了getUserInfo---')
-
-      return resultSuccess({
-        name: '章三',
-        age: 40,
-        sex: '男'
-      })
-    }
-  },
-  {
-    url: '/basic-api/getPermCode',
-    timeout: 200,
-    method: 'get',
-    response: (request: requestParams) => {
-      const token = getRequestToken(request)
-      if (!token) return resultError('Invalid token')
-      const checkUser = createFakeUserList().find((item) => item.token === token)
+      const checkUser = createFakeUserList().find((item) => item.userId === '2')
       if (!checkUser) {
-        return resultError('Invalid token!')
+        return resultError('The corresponding user information was not obtained!')
       }
-      const codeList = fakeCodeList[checkUser.userId]
-
-      return resultSuccess(codeList)
-    }
-  },
-  {
-    url: '/basic-api/logout',
-    timeout: 200,
-    method: 'get',
-    response: (request: requestParams) => {
-      const token = getRequestToken(request)
-      if (!token) return resultError('Invalid token')
-      const checkUser = createFakeUserList().find((item) => item.token === token)
-      if (!checkUser) {
-        return resultError('Invalid token!')
-      }
-      return resultSuccess(undefined, { message: 'Token has been destroyed' })
+      return resultSuccess(checkUser)
     }
   }
 ] as MockMethod[]

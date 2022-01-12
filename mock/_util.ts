@@ -2,10 +2,10 @@
 
 import { Recordable } from 'vite-plugin-mock'
 
-export function resultSuccess<T = Recordable>(result: T, { message = 'ok' } = {}) {
+export function resultSuccess<T = Recordable>(data: T, { message = 'ok' } = {}) {
   return {
     code: 0,
-    result,
+    data,
     message,
     type: 'success'
   }
@@ -28,10 +28,10 @@ export function resultPageSuccess<T = any>(
   }
 }
 
-export function resultError(message = 'Request failed', { code = -1, result = null } = {}) {
+export function resultError(message = 'Request failed', { code = -1, data = null } = {}) {
   return {
     code,
-    result,
+    data,
     message,
     type: 'error'
   }

@@ -13,7 +13,9 @@ export default defineConfig(({ command, mode }: ConfigEnv) => {
     base: '/',
     plugins: [
       vue(),
-      vueJsx(),
+      vueJsx({
+        // include: /\.(jsx|tsx)/
+      }),
       styleImport({
         resolves: [VantResolve()]
       }),
@@ -51,7 +53,7 @@ export default defineConfig(({ command, mode }: ConfigEnv) => {
         '/foo': 'http://localhost:4567',
         // 选项写法
         '/api': {
-          target: 'http://jsonplaceholder.typicode.com',
+          target: 'http://127.0.0.1:3000',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, '')
         },

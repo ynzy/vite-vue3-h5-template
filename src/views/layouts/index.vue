@@ -17,6 +17,9 @@ watch(activeRoute, (v) => {
 const handleChange = (v: number) => {
   console.log('tab value @change:', v)
 }
+watch(route, (v) => {
+  console.log('route', v.name)
+})
 </script>
 <template>
   <div class="layout-content">
@@ -25,22 +28,13 @@ const handleChange = (v: number) => {
     </keep-alive>
     <router-view v-else></router-view>
   </div>
-  <div class="layout-footer" v-if="$route.meta.showTab">
+  <div class="layout-footer" v-if="route.meta.showTab">
     <TabBar :tabbars="tabbars" v-model="activeRoute" @change="handleChange" />
   </div>
 </template>
 <style lang="scss" scoped>
 .layout-tabbar {
-  display: flex;
-  flex-wrap: wrap;
-  a {
-    display: inline-block;
-    font-size: 14px;
-    margin: 10px;
-    padding: 5px;
-    color: #000;
-    background: rgb(0, 225, 255);
-    box-sizing: border-box;
-  }
+  width: 100%;
+  height: 100%;
 }
 </style>

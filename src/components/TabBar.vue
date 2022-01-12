@@ -24,7 +24,7 @@ const active = computed({
 </script>
 <template>
   <van-tabbar v-model="active" route fixed>
-    <van-tabbar-item v-for="(item, index) in tabbars" :to="item.to" :icon="item.icon" :key="index">
+    <van-tabbar-item v-for="item in tabbars" :to="item.to" :icon="item.icon" :key="item.to">
       {{ item.title }}
     </van-tabbar-item>
   </van-tabbar>

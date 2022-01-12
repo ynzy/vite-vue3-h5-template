@@ -50,7 +50,7 @@ export const routes: Array<RouteRecordRaw> = [
       {
         path: '/mockAxios',
         name: 'MockAxios',
-        component: () => import('@/test/testMockAxios'),
+        component: () => import('@/test/testMockAxios.vue'),
         meta: { title: '测试mock-axios', keepAlive: false, showTab: false }
       },
       {
@@ -58,6 +58,12 @@ export const routes: Array<RouteRecordRaw> = [
         name: 'Pinia',
         component: () => import('@/test/testPinia.vue'),
         meta: { title: '测试pinia', keepAlive: false, showTab: false }
+      },
+      {
+        path: '/testTimingData',
+        name: 'TestTimingData',
+        component: () => import('@/test/testTimingData.vue'),
+        meta: { title: '定时请求数据', keepAlive: false, showTab: false }
       }
     ]
   }
