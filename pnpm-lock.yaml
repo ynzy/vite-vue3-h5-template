@@ -26,6 +26,7 @@ specifiers:
   vite-plugin-mock: ^2.9.6
   vite-plugin-style-import: ^1.4.1
   vue: ^3.2.26
+  vue-request: ^1.2.3
   vue-router: ^4.0.12
   vue-tsc: ^0.29.8
 
@@ -35,6 +36,7 @@ dependencies:
   pinia-plugin-persistedstate: 1.0.3_pinia@2.0.9
   vant: 3.4.0_vue@3.2.26
   vue: 3.2.26
+  vue-request: 1.2.3_vue@3.2.26
   vue-router: 4.0.12_vue@3.2.26
 
 devDependencies:
@@ -3249,6 +3251,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /vue-request/1.2.3_vue@3.2.26:
+    resolution: {integrity: sha512-Yo1KxKpucNZyv/angPv7S8q00MMhFi7mFyITVIIaNMzz6Mu7QrPfP1fIQOoupEqFK+dgbXa8M7/v+7UBPMrCMQ==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      vue: 3.2.26
+    dev: false
 
   /vue-router/4.0.12_vue@3.2.26:
     resolution: {integrity: sha1-jceSzd9bsavMOQj5BkE23n4TxGA=}

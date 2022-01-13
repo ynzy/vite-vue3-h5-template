@@ -8,7 +8,7 @@
 
 Vue CLI 需要 Node.js 8.9 或更高版本 (推荐 8.11.0+)。你可以使用 nvm 或 nvm-windows 在同一台电脑中管理多个 Node 版本。
 
-本示例 Node.js v14.17.0
+本示例 Node.js v17.2.0
 
 ## 项目安装/启动
 
@@ -38,11 +38,12 @@ pnpm preview  // 本地预览打包的项目
 - [√ 配置 proxy 跨域](#proxy)
 - [√ 静态资源使用](#static)
 - [√ Axios 封装及接口管理](#axios)
+- [√ vue-request 管理接口](#vueRequest)
 - [√ VantUI 组件按需加载](#vant)
 - [√ viewport 适配方案](#viewport)
 - [√ 适配苹果底部安全距离](#phonex)
 - [√ 动态设置 title](#dyntitle)
-- [√ 配置 Jssdk](#jssdk)
+- [ 配置 Jssdk](#jssdk)
 
 ## <span id="createVue">✅ 使用 create-vue 初始化项目 </span>
 
@@ -1034,6 +1035,47 @@ onMounted(async () => {
 
 [▲ 回顶部](#top)
 
+## <span id="vueRequest">✅ vue-request 管理接口 </span>
+* 文档：https://cn.attojs.org/
+* 使用 vue-request 可以更方便地管理接口
+### 1. 安装依赖
+```js
+pnpm i vue-request
+```
+### 2. 使用axios来获取数据，vue-request进行管理
+```js
+// axios 
+export const fetchUserInfo = () => {
+  return request<IResponseType<IUserInfo>>({
+    url: '/user/info',
+    method: 'get',
+    loading: true
+  })
+}
+// vue-request
+const { data: res, run } = useRequest(fetchUserInfo)
+// 如果请求未完成，data为undefined。 使用 run 等待请求完成
+await run()
+console.log(res.value?.data)
+```
+### 3. 使用 vue-request 进行定时请求
+```js
+// axios
+export const getTimingData = () => {
+  return request({
+    url: '/getTimingData',
+    method: 'GET'
+  })
+}
+
+// vue-request
+const { data: resultData, run } = useRequest(getTimingData, {
+    pollingInterval: 5000,
+    onSuccess: (data) => {
+      console.log('onSuccess', data)
+    }
+  })
+```
 ## <span id="vant">✅ VantUI 组件按需加载 </span>
 
 - 文档：https://vant-contrib.gitee.io/vant/v3/#/zh-CN/quickstart
@@ -1224,10 +1266,6 @@ router.beforeEach((to, from, next) => {
 
 [▲ 回顶部](#top)
 
-## <span id="jssdk">✅ 配置 Jssdk </span>
-
-[▲ 回顶部](#top)
-
-## <span id="createVue">✅ xxx </span>
+## <span id="jssdk"> 配置 Jssdk </span>
 
 [▲ 回顶部](#top)

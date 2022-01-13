@@ -19,6 +19,7 @@
     "pinia-plugin-persistedstate": "^1.0.3",
     "vant": "^3.4.0",
     "vue": "^3.2.26",
+    "vue-request": "^1.2.3",
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
