@@ -50,11 +50,18 @@ export default [
     response: (request: requestParams) => {
       // const token = getRequestToken(request);
       // if (!token) return resultError('Invalid token');
-      const checkUser = createFakeUserList().find((item) => item.userId === '2')
-      if (!checkUser) {
-        return resultError('The corresponding user information was not obtained!')
+      // const checkUser = createFakeUserList().find((item) => item.userId === '2')
+      // if (!checkUser) {
+      //   return resultError('The corresponding user information was not obtained!')
+      // }
+      const info = {
+        author: 'ynzy',
+        avatar: 'https://avatars.githubusercontent.com/u/39397772?s=60&v=4',
+        projectAddress: 'https://github.com/ynzy/vue3-ts-wx-h5-template',
+        demoUrl: 'https://vue3-ts-wx-h5-template.vercel.app/',
+        demoCodeUrl: 'https://files.catbox.moe/lxle3w.png'
       }
-      return resultSuccess(checkUser)
+      return resultSuccess(info)
     }
   }
 ] as MockMethod[]
