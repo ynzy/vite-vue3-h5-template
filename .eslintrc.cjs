@@ -18,7 +18,8 @@ module.exports = {
 		'prettier/prettier': 'warn',
 		'@typescript-eslint/no-explicit-any': 'off',
 		'@typescript-eslint/no-unused-vars': 'off',
-		'vue/multi-word-component-names': 'off'
+		'vue/multi-word-component-names': 'off',
+		'no-async-promise-executor': 'off'
 		// 'no-undef': 'off'
 	}
 }

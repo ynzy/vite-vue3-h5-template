@@ -1,4 +1,5 @@
 # 项目介绍
+* 写了7个晚上(每个晚上2-3小时)
 
 🎉 基于 vite2 + Vue3.2 + TypeScript + pinia + mock + sass + vantUI + rem 适配 + axios 封装 的基础模版
 
@@ -1255,7 +1256,75 @@ router.beforeEach((to, from, next) => {
 [▲ 回顶部](#top)
 
 ## <span id="jssdk">✅ 配置 Jssdk </span>
+安装：
 
+```bash
+yarn add weixin-js-sdk
+```
+
+类型声明写在了 model/weixin-js-sdk.d.ts
+
+由于苹果浏览器只识别第一次进入的路由，所以需要先处理下配置使用的 url
+
+- router.ts
+此处的jssdk配置仅供演示，正常业务逻辑需要配合后端去写
+```ts
+
+```
+
+
+```ts
+import { defineStore } from 'pinia'
+
+export interface ILinkState {
+	initLink: string
+}
+
+export const useAuthStore = defineStore({
+	id: 'auth',
+	state: () =>
+		({
+			initLink: ''
+		} as ILinkState),
+	actions: {
+		setInitLink(data: any) {
+			this.$state.initLink = data
+		},
+		setIsAuth(data) {
+			this.$state.isAuth = data
+		},
+		setCode(code) {
+			this.$state.code = code
+		}
+	},
+	// 开启数据缓存
+	persist: {
+		key: 'auth',
+		storage: window.localStorage,
+		// paths: ['name'],
+		overwrite: true
+	}
+}
+```
+由于window没有entryUrl变量，需要声明文件进行声明
+
+```ts
+// typings/index.d.ts
+declare interface Window {
+  entryUrl: any
+}
+```
+
+创建 hooks 函数
+
+hooks/useWxJsSdk.ts
+
+每个页面使用jssdk，都需要调用一次useWxJsSdk,然后再使用其他封装的函数
+
+调用：
+
+```ts
+```
 [▲ 回顶部](#top)
 
 ## <span id="prettier">✅ Eslint + Prettier 统一开发规范 </span>

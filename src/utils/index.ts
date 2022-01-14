@@ -46,14 +46,12 @@ export const getQueryParamByKey = (paramName: string) => {
  * 用来获取url中的所有参数
  * let url = 'http://192.168.1.122:9020/?appId=wxf4b72971eacba4d6&loginScene=1#/'
  */
-export const getQueryParams = <T extends Record<string, never>>(
-	url = document.location.toString()
-) => {
+export const getQueryParams = <T>(url = document.location.toString()) => {
 	// let url =
 	// 如果url中有特殊字符则需要进行一下解码
 	url = decodeURI(url)
 	const arr1 = url.split('?')
-	const obj = {}
+	const obj = {} as T
 	if (arr1.length > 1) {
 		const index = arr1[1].indexOf('#')
 		arr1[1] = index == -1 ? arr1[1] : arr1[1].slice(0, index)
@@ -63,7 +61,7 @@ export const getQueryParams = <T extends Record<string, never>>(
 			obj[curArr[0]] = decodeURIComponent(curArr[1])
 		}
 	}
-	return obj as { [key: string]: T }
+	return obj
 }
 
 /**

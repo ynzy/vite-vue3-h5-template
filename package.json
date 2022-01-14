@@ -21,7 +21,8 @@
     "vant": "^3.4.0",
     "vue": "^3.2.26",
     "vue-request": "^1.2.3",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "weixin-js-sdk": "^1.6.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",
