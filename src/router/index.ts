@@ -10,7 +10,7 @@ interface IQueryParams {
 	code?: string
 }
 const router = createRouter({
-	history: createWebHashHistory(),
+	history: createWebHistory(),
 	routes,
 	strict: true,
 	scrollBehavior: () => ({ left: 0, top: 0 })
