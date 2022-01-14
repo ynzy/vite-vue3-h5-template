@@ -37,6 +37,7 @@ pnpm preview  // 本地预览打包的项目
 - [√ 静态资源使用](#static)
 - [√ Axios 封装及接口管理](#axios)
 - [√ vue-request 管理接口](#vueRequest)
+- [√ 自动导入](#unplugin)
 - [√ VantUI 组件按需加载](#vant)
 - [√ viewport 适配方案](#viewport)
 - [√ 适配苹果底部安全距离](#phonex)
@@ -980,6 +981,88 @@ const { data: resultData, run } = useRequest(getTimingData, {
       console.log('onSuccess', data)
     }
   })
+```
+## <span id="unplugin">✅ unplugin-xxx 自动导入 </span>
+* 参考资料：https://juejin.cn/post/7012446423367024676
+* 自定义组件自动引入 [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components#readme)
+* vue3等插件 hooks 自动引入 [unplugin-auto-import/vite](https://github.com/antfu/unplugin-auto-import)
+* message, notification 等引入样式自动引入 [vite-plugin-style-import](https://github.com/vbenjs/vite-plugin-style-import)
+* eslint插件 [vue-global-api](https://github.com/antfu/vue-global-api)
+### unplugin-vue-components
+* 自动导入流行库组件和自定义组件
+1. 安装依赖
+```js
+pnpm i -D unplugin-vue-components
+```
+2. 修改 vite.config.ts
+```js
+Components({
+  // 指定组件位置，默认是src/components
+  dirs: ['src/components'],
+  // ui库解析器
+  // resolvers: [ElementPlusResolver()],
+  extensions: ['vue', 'tsx'],
+  // 配置文件生成位置
+  dts: 'src/components.d.ts',
+  // 搜索子目录
+  deep: true,
+  // 允许子目录作为组件的命名空间前缀。
+  directoryAsNamespace: false
+  // include:[]
+}),
+```
+### unplugin-auto-import
+* 自动导入vue3相关api
+1. 安装依赖
+```js
+pnpm i -D unplugin-auto-import
+```
+2. 配置 vite.config.ts
+```js
+AutoImport({
+  include: [
+    /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+    /\.vue$/,
+    /\.vue\?vue/, // .vue
+    /\.md$/ // .md
+  ],
+  imports: ['vue', 'vue-router', '@vueuse/core'],
+  // 可以选择auto-import.d.ts生成的位置，使用ts建议设置为'src/auto-import.d.ts'
+  dts: 'src/auto-import.d.ts',
+  // eslint globals Docs - https://eslint.org/docs/user-guide/configuring/language-options#specifying-globals
+  // 生成全局声明文件，给eslint用
+  eslintrc: {
+    enabled: true, // Default `false`
+    filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
+    globalsPropValue: true // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+  }
+})
+```
+3. 配置 eslintrc
+```js
+// .eslintrc.js
+module.exports = { 
+  /* ... */
+  extends: [
+    // ...
+    './.eslintrc-auto-import.json',
+  ],
+}
+```
+### vue-global-api 
+* 在页面没有引入的情况下，使用unplugin-auto-import/vite来自动引入hooks，在项目中肯定会报错的，这时候需要在eslintrc.js中的extends引入vue-global-api，这个插件是vue3hooks的,其他自己找找，找不到的话可以手动配置一下globals
+1. 安装依赖
+```js
+pnpm i -D vue-global-api
+```
+2. 配置 eslintrc
+```js
+// .eslintrc.js
+module.exports = {
+  extends: [
+    'vue-global-api'
+  ]
+};
 ```
 ## <span id="vant">✅ VantUI 组件按需加载 </span>
 

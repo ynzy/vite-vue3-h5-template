@@ -1,22 +1,22 @@
 export interface IResponseType<P = Record<string, unknown>> {
-  code: number
-  msg: string
-  data: P
+	code: number
+	msg: string
+	data: P
 }
 
 // 用户信息
 export interface IUserInfo {
-  author?: string
-  avator?: string
-  projectAddress?: string
-  demoUrl?: string
-  demoCodeUrl?: string
+	author?: string
+	avator?: string
+	projectAddress?: string
+	demoUrl?: string
+	demoCodeUrl?: string
 }
 
 // jssdk配置信息
 export interface IJsSdk {
-  signature: string
-  nonceStr: string
-  timestamp: string
-  appId: string
+	signature: string
+	nonceStr: string
+	timestamp: string
+	appId: string
 }

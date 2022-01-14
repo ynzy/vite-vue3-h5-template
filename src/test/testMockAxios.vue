@@ -14,9 +14,9 @@ import mockData from './mockData'
 // })
 </script>
 <template>
-  <div>
-    <mockData />
-    <!-- {{ data }} -->
-  </div>
+	<div>
+		<mockData />
+		<!-- {{ data }} -->
+	</div>
 </template>
 <style lang="scss" scoped></style>

@@ -2,30 +2,30 @@
 import { computed, PropType } from 'vue'
 
 export interface ITabList {
-  title: string // 标题
-  to: string // url路径
-  icon: string // 图标
+	title: string // 标题
+	to: string // url路径
+	icon: string // 图标
 }
 const props = defineProps({
-  tabbars: {
-    type: Array as PropType<ITabList[]>,
-    default: () => []
-  },
-  active: Number
+	tabbars: {
+		type: Array as PropType<ITabList[]>,
+		default: () => []
+	},
+	active: Number
 })
 const emit = defineEmits(['change', 'update:active'])
 const active = computed({
-  get: () => props.active,
-  set: (val) => {
-    emit('update:active', val)
-    emit('change', val)
-  }
+	get: () => props.active,
+	set: (val) => {
+		emit('update:active', val)
+		emit('change', val)
+	}
 })
 </script>
 <template>
-  <van-tabbar v-model="active" route fixed>
-    <van-tabbar-item v-for="item in tabbars" :to="item.to" :icon="item.icon" :key="item.to">
-      {{ item.title }}
-    </van-tabbar-item>
-  </van-tabbar>
+	<van-tabbar v-model="active" route fixed>
+		<van-tabbar-item v-for="item in tabbars" :to="item.to" :icon="item.icon" :key="item.to">
+			{{ item.title }}
+		</van-tabbar-item>
+	</van-tabbar>
 </template>

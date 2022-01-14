@@ -4,8 +4,8 @@ import request from '@/utils/request'
  */
 
 export const getTimingData = () => {
-  return request({
-    url: '/getTimingData',
-    method: 'GET'
-  })
+	return request({
+		url: '/getTimingData',
+		method: 'GET'
+	})
 }

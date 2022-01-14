@@ -1,9 +1,9 @@
-import { defineComponent } from 'vue'
+// import { defineComponent } from 'vue'
 
 export default defineComponent({
-  setup() {
-    return () => {
-      return <div>hello tsx</div>
-    }
-  }
+	setup() {
+		return () => {
+			return <div>hello tsx</div>
+		}
+	}
 })

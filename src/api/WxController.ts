@@ -7,15 +7,15 @@ import { IResponseType, IJsSdk } from './interface'
 import { config } from '@/config'
 
 export const fetchWeChatAuth = () => {
-  const redirectHref =
-    'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' +
-    config.APPID +
-    '&redirect_uri=' +
-    encodeURIComponent(location.href.split('?')[0]) +
-    '&response_type=code&scope=snsapi_userinfo&state=' +
-    'STATE' +
-    '#wechat_redirect'
-  return redirectHref
+	const redirectHref =
+		'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' +
+		config.APPID +
+		'&redirect_uri=' +
+		encodeURIComponent(location.href.split('?')[0]) +
+		'&response_type=code&scope=snsapi_userinfo&state=' +
+		'STATE' +
+		'#wechat_redirect'
+	return redirectHref
 }
 
 /**
@@ -24,8 +24,8 @@ export const fetchWeChatAuth = () => {
  * @param {*} route 页面路由 location.href
  */
 export const wechatRedirect = () => {
-  console.log(`${config.baseApi}/wx/authorize?${location.href}`)
-  return `${config.baseApi}/wx/authorize?route=${location.href}`
+	console.log(`${config.baseApi}/wx/authorize?${location.href}`)
+	return `${config.baseApi}/wx/authorize?route=${location.href}`
 }
 
 /**
@@ -33,10 +33,10 @@ export const wechatRedirect = () => {
  */
 type TParams = { url: string }
 export const wxJssdk = (params: TParams) => {
-  return request<IResponseType<IJsSdk>>({
-    url: '/wx/jssdk',
-    method: 'get',
-    params,
-    loading: false
-  })
+	return request<IResponseType<IJsSdk>>({
+		url: '/wx/jssdk',
+		method: 'get',
+		params,
+		loading: false
+	})
 }

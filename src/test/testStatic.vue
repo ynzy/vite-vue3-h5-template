@@ -1,11 +1,11 @@
 <!--  -->
 <template>
-  <div>
-    <h1>测试静态资源使用</h1>
-    <!-- <img src="@/assets/images/图片.jpg" alt=""> -->
-    <img src="@/assets/images/pic.jpeg" alt="" />
-    <img :src="imgUrl" alt="" />
-  </div>
+	<div>
+		<h1>测试静态资源使用</h1>
+		<!-- <img src="@/assets/images/图片.jpg" alt=""> -->
+		<img src="@/assets/images/pic.jpeg" alt="" />
+		<img :src="imgUrl" alt="" />
+	</div>
 </template>
 <script setup lang="ts">
 import img from '@/assets/images/图片.jpg' // 返回图片资源路径
@@ -21,7 +21,7 @@ console.log('读取json--', jsonText)
 
 const worker = new Worker()
 worker.onmessage = function (e) {
-  console.log('worker监听---', e)
+	console.log('worker监听---', e)
 }
 
 const imgUrl = new URL('../assets/images/png/year.png', import.meta.url).href
