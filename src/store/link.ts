@@ -5,7 +5,7 @@ export interface ILinkState {
 }
 
 export const useLinkStore = defineStore({
-	id: 'auth',
+	id: 'link',
 	state: () =>
 		({
 			initLink: ''

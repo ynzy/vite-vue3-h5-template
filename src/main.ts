@@ -9,9 +9,10 @@ import '@/styles/index.scss'
 import { vantPlugins } from './plugins/vant'
 
 const app = createApp(App)
+window.vm = app
 
-app.use(vantPlugins)
 app.use(store)
+app.use(vantPlugins)
 app.use(router)
 
 app.mount('#app')

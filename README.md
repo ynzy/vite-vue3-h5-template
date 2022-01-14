@@ -1256,8 +1256,8 @@ router.beforeEach((to, from, next) => {
 [▲ 回顶部](#top)
 
 ## <span id="jssdk">✅ 配置 Jssdk </span>
-安装：
 
+1.  安装：
 ```bash
 yarn add weixin-js-sdk
 ```
@@ -1281,7 +1281,7 @@ export interface ILinkState {
 }
 
 export const useAuthStore = defineStore({
-	id: 'auth',
+	id: 'auth', // id 必须唯一
 	state: () =>
 		({
 			initLink: ''
