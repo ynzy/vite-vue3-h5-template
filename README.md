@@ -55,6 +55,7 @@ pnpm preview  // 本地预览打包的项目
 
 <details>
 <summary>createVue</summary><br>
+
 ```js
 
 npm init vue@3
@@ -76,22 +77,22 @@ Vue.js - The Progressive JavaScript Framework
 ✔ Add ESLint for code quality? …  Yes
 
 ✔ Add Prettier for code formatting? …  Yes
+
 ```
 
 - 初始化项目包含
+  - Vite
+  - Vue3.2
+  - Vue-router4
+  - TypeScript
+  - Jsx
+  - Pinia
+  - Eslint
+  - Prettier
+  - @types/node // 识别 nodejs 内置模块
 
-```js
-- Vite
-- Vue3.2
-- Vue-router4
-- TypeScript
-- Jsx
-- Pinia
-- Eslint
-- Prettier
-- @types/node // 识别 nodejs 内置模块
-```
 <br></details>
+
 [▲ 回顶部](#top)
 
 ## <span id="ip">✅ 配置 ip 访问项目 </span>
