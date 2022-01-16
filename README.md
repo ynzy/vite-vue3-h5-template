@@ -1,5 +1,5 @@
 # 项目介绍
-* 写了7个晚上(每个晚上2-3小时)
+* 写了8个晚上(每个晚上2-3小时)
 
 🎉 基于 vite2 + Vue3.2 + TypeScript + pinia + mock + sass + vantUI + rem 适配 + axios 封装 的基础模版
 
@@ -46,12 +46,15 @@ pnpm preview  // 本地预览打包的项目
 - [√ 配置 Jssdk](#jssdk)
 - [√ Eslint + Prettier 统一开发规范](#prettier)
 - [√ husky + lint-staged 提交校验](#husky)
+- [√ 项目打包优化](#build)
 
 ## <span id="createVue">✅ 使用 create-vue 初始化项目 </span>
 
 - 文档：https://github.com/vuejs/create-vue
 - 如果想从 0 到 1 手动搭建基于 vite 的基础模版，可查看[vite-vue3-template](https://github.com/ynzy/vite-vue3-template)
 
+<details>
+<summary>createVue</summary><br>
 ```js
 npm init vue@3
 
@@ -80,7 +83,7 @@ Vue.js - The Progressive JavaScript Framework
 - Prettier
 - @types/node // 识别 nodejs 内置模块
 ```
-
+<br></details>
 [▲ 回顶部](#top)
 
 ## <span id="ip">✅ 配置 ip 访问项目 </span>
@@ -1422,3 +1425,20 @@ npx husky add .husky/pre-commit "npx lint-staged" // pre-commit 执行 npx lint-
 ```
 
 [▲ 回顶部](#top)
+
+## <span id="build">✅ 项目打包优化 </span>
+* 项目打包优化主要是把vite.config.ts中的配置提取到了专门做打包配置的文件夹
+* build 文件夹目录
+```js
+- vite vite环境相关配置
+- - plugin 插件相关配置
+- - - autocomponents 自动导入组件
+- - - autoImport 自动导入 api
+- - - compress 压缩打包
+- - - mock mock 服务
+- - - styleImport 样式自动导入
+- - - index 插件配置入口
+- - build.ts 构建配置
+- - proxy.ts 代理配置
+- utils 工具函数
+```

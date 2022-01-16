@@ -54,7 +54,7 @@ export default defineComponent({
 		background: #fff;
 		.demo-home__title {
 			margin: 0 0 6px;
-			font-size: 32px;
+			font-size: 28px;
 			.demo-home__title img,
 			.demo-home__title span {
 				display: inline-block;
@@ -69,7 +69,8 @@ export default defineComponent({
 			}
 		}
 		.demo-home__desc {
-			margin: 0 0 20px;
+			margin-top: 10px;
+			// margin: 0 0 10px;
 			color: rgba(69, 90, 100, 0.6);
 			font-size: 14px;
 		}
