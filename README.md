@@ -1439,15 +1439,16 @@ npx husky add .husky/pre-commit "npx lint-staged" // pre-commit 执行 npx lint-
 * 项目打包优化主要是把vite.config.ts中的配置提取到了专门做打包配置的文件夹
 * build 文件夹目录
 ```js
+- build
 - vite vite环境相关配置
-- - plugin 插件相关配置
-- - - autocomponents 自动导入组件
-- - - autoImport 自动导入 api
-- - - compress 压缩打包
-- - - mock mock 服务
-- - - styleImport 样式自动导入
-- - - index 插件配置入口
-- - build.ts 构建配置
-- - proxy.ts 代理配置
+- | - plugin 插件相关配置
+- | - | - autocomponents 自动导入组件
+- | - | - autoImport 自动导入 api
+- | - | - compress 压缩打包
+- | - | - mock mock 服务
+- | - | - styleImport 样式自动导入
+- | - | - index 插件配置入口
+- | - build.ts 构建配置
+- | - proxy.ts 代理配置
 - utils 工具函数
 ```
