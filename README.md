@@ -7,8 +7,6 @@
 
 ## Node 版本要求
 
-Vue CLI 需要 Node.js 8.9 或更高版本 (推荐 8.11.0+)。你可以使用 nvm 或 nvm-windows 在同一台电脑中管理多个 Node 版本。
-
 本示例 Node.js v17.2.0
 
 ## 项目安装/启动
