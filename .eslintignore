@@ -6,6 +6,7 @@ node_modules
 *.ttf
 .vscode
 .idea
+dist_test
 dist
 /public
 /docs

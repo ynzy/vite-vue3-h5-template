@@ -7,6 +7,7 @@ const route = useRoute()
 console.log(route.meta)
 const tabbars: Array<ITabList> = reactive([
 	{ title: '首页', to: '/home', icon: 'home-o' },
+	{ title: '项目信息', to: '/pkgInfo', icon: 'label-o' },
 	{ title: '案例', to: '/demo', icon: 'star-o' },
 	{ title: '关于我', to: '/about', icon: 'user-o' }
 ])

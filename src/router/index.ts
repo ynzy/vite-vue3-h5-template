@@ -10,7 +10,7 @@ interface IQueryParams {
 	code?: string
 }
 const router = createRouter({
-	history: createWebHashHistory(),
+	history: createWebHashHistory(import.meta.env.VITE_PUBLIC_PATH),
 	routes,
 	strict: true,
 	scrollBehavior: () => ({ left: 0, top: 0 })

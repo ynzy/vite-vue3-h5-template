@@ -11,6 +11,7 @@ specifiers:
   '@vueuse/core': ^7.5.3
   autoprefixer: ^10.4.2
   axios: ^0.24.0
+  dayjs: ^1.10.7
   eslint: ^8.5.0
   eslint-plugin-vue: ^8.2.0
   husky: ^7.0.4
@@ -26,6 +27,7 @@ specifiers:
   unplugin-vue-components: ^0.17.11
   vant: ^3.4.0
   vite: ^2.7.7
+  vite-plugin-compression: ^0.4.0
   vite-plugin-mock: ^2.9.6
   vite-plugin-style-import: ^1.4.1
   vue: ^3.2.26
@@ -38,6 +40,7 @@ specifiers:
 dependencies:
   '@vueuse/core': 7.5.3_vue@3.2.26
   axios: 0.24.0
+  dayjs: 1.10.7
   pinia: 2.0.9_typescript@4.5.4+vue@3.2.26
   pinia-plugin-persistedstate: 1.0.3_pinia@2.0.9
   vant: 3.4.0_vue@3.2.26
@@ -67,6 +70,7 @@ devDependencies:
   unplugin-auto-import: 0.5.10_@vueuse+core@7.5.3+vite@2.7.10
   unplugin-vue-components: 0.17.11_vite@2.7.10+vue@3.2.26
   vite: 2.7.10_sass@1.46.0
+  vite-plugin-compression: 0.4.0_vite@2.7.10
   vite-plugin-mock: 2.9.6_mockjs@1.1.0+vite@2.7.10
   vite-plugin-style-import: 1.4.1_vite@2.7.10
   vue-global-api: 0.4.1_vue@3.2.26
@@ -1300,6 +1304,10 @@ packages:
 
   /csstype/2.6.19:
     resolution: {integrity: sha1-/utarokCC7OJ4fY2aaXtSQ45HKo=}
+    dev: false
+
+  /dayjs/1.10.7:
+    resolution: {integrity: sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig==}
     dev: false
 
   /debug/2.6.9:
@@ -3192,6 +3200,19 @@ packages:
       '@vant/use': 1.3.4
       vue: 3.2.26
     dev: false
+
+  /vite-plugin-compression/0.4.0_vite@2.7.10:
+    resolution: {integrity: sha512-CGC8DfIey0k4S4o54ylwFIzT1Mjb9s7cMmlXj6DMM1MZZIeWFjPCJc6YZWjnnS28ul3r7R1nmihvYvGg/lOYsQ==}
+    peerDependencies:
+      vite: '>=2.0.0'
+    dependencies:
+      chalk: 4.1.2
+      debug: 4.3.3
+      fs-extra: 10.0.0
+      vite: 2.7.10_sass@1.46.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /vite-plugin-mock/2.9.6_mockjs@1.1.0+vite@2.7.10:
     resolution: {integrity: sha1-BN0j3muqBS+qW5rTF1FMkNYgXiU=}

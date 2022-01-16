@@ -24,6 +24,12 @@ export const routes: Array<RouteRecordRaw> = [
 				meta: { title: '测试案例', keepAlive: false, showTab: true }
 			},
 			{
+				path: '/pkgInfo',
+				name: 'PkgInfo',
+				component: () => import('@/views/tabBar/PkgInfo.vue'),
+				meta: { title: '项目信息', keepAlive: false, showTab: true }
+			},
+			{
 				path: '/about',
 				name: 'About',
 				component: () => import('@/views/tabBar/About.vue'),

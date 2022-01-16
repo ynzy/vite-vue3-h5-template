@@ -13,7 +13,8 @@
     "esModuleInterop": true,
     "noImplicitAny": false,
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "#/*": [ "types/*" ]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
     "skipLibCheck": true
@@ -23,7 +24,8 @@
     "env.d.ts", 
     "src/**/*", 
     "src/**/*.vue",
-    "mock/**/*.ts",
+    "mock/**/*.ts", 
+    "types/**/*.d.ts",
   ],
   "exclude": [
     "node_modules",
