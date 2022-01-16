@@ -61,12 +61,19 @@ npm init vue@3
 Vue.js - The Progressive JavaScript Framework
 
 ✔ Project name: … vite-vue3-h5-template
+
 ✔ Add TypeScript? …  Yes
+
 ✔ Add JSX Support? …  Yes
+
 ✔ Add Vue Router for Single Page Application development? …  Yes
+
 ✔ Add Pinia for state management? …  Yes
+
 ✔ Add Cypress for testing? …   No
+
 ✔ Add ESLint for code quality? …  Yes
+
 ✔ Add Prettier for code formatting? …  Yes
 ```
 
