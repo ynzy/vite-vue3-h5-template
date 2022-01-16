@@ -79,6 +79,7 @@ Vue.js - The Progressive JavaScript Framework
 ✔ Add Prettier for code formatting? …  Yes
 
 ```
+<br></details>
 
 - 初始化项目包含
   - Vite
@@ -91,7 +92,7 @@ Vue.js - The Progressive JavaScript Framework
   - Prettier
   - @types/node // 识别 nodejs 内置模块
 
-<br></details>
+
 
 [▲ 回顶部](#top)
 
