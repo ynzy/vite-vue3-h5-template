@@ -56,6 +56,7 @@ pnpm preview  // 本地预览打包的项目
 <details>
 <summary>createVue</summary><br>
 ```js
+
 npm init vue@3
 
 Vue.js - The Progressive JavaScript Framework
