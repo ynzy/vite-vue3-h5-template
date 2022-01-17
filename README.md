@@ -1,41 +1,63 @@
-# 原来 vuecli 项目和现在 vite-vue 项目开发/生产速度对比
-* vuecli项目地址：https://github.com/ynzy/vue3-h5-template
-* vite-vue项目地址：https://github.com/ynzy/vite-vue3-h5-template
-## 开发启动速度对比
-* vue-cli
-  * 等了几秒
-![vuecli开发启动速度](/public/speed/vuecli开发启动速度.png)
-* vite-vue
-  * 几乎没等待
-![vite开发启动速度](/public/speed/vite开发启动速度.png)
 
-* 总结：vite 启动速度 是 vue-cli 的 **5** 倍！
-## 开发热更新速度对比
-* vue-cli
-  * 需要重新编译文件
-![vuelciHMR热更新速度](/public/speed/vuelciHMR热更新速度.png)
-* vite-vue
-  * 几乎没有花时间，代码改了就生效了
-![viteHMR热更新速度](/public/speed/viteHMR热更新速度.png)
 
-* 总结：vite 即时生效 
-## 生产打包速度对比
-* vue-cli
-![vuecli打包速度](/public/speed/vuecli打包速度.png)
-* vite-vue
-![vite打包速度](/public/speed/vite打包速度.png)
-
-* 总结：几乎没什么差别
-
-## 总结
-* vite 在开发环境下，极大地提高了开发效率，真香定律！
-
-# 项目介绍
-* 写了8个晚上(每个晚上2-3小时)
 
 🎉 基于 vite2 + Vue3.2 + TypeScript + pinia + mock + sass + vantUI + rem 适配 + axios 封装 的基础模版
 
 [查看 demo](https://vite-vue3-h5-template.vercel.app/) 建议手机端查看
+
+# 前述
+* vuecli项目地址：https://github.com/ynzy/vue3-h5-template
+* vite-vue项目地址：https://github.com/ynzy/vite-vue3-h5-template
+* 一年前 vue3 刚出来没大会，用 vuecli 写了一个模版项目，文章地址：[基于Vue3+TypeScript+ Vue-Cli4.0构建手机端模板脚手架](https://juejin.cn/post/6931630327211229198)
+* 去年尤大新作 vite 登上了热门，利用下班时间，花了8个晚上，每个晚上写了 2-3 小时对我的模版项目进行了重构。
+* 用了 vite 的都说真香，到底有多香呢。我们先来看下重构后的开发启动速度，热更新速度，打包速度的对比吧
+
+# 原来 vuecli 项目和现在 vite-vue 项目开发/生产速度对比
+
+## 开发启动速度对比
+
+-   vue-cli
+
+    -   等了几秒 
+    
+![vuecli开发启动速度.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8685bc5c4c364e9387d5b02d712820f7~tplv-k3u1fbpfcp-watermark.image?)
+
+-   vite-vue
+
+    -   几乎没等待 
+    
+![vite开发启动速度.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24f9914377c14302ade61cc62dd41b5a~tplv-k3u1fbpfcp-watermark.image?)
+
+-   总结：vite 启动速度 是 vue-cli 的 **5倍**！
+
+## 开发热更新速度对比
+
+-   vue-cli
+
+    -   需要重新编译文件 
+    
+![vuelciHMR热更新速度.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/af25e09c8fd94134bea673e09b0c2d02~tplv-k3u1fbpfcp-watermark.image?)
+
+-   vite-vue
+
+    -   几乎没有花时间，代码改了就生效了
+    
+![viteHMR热更新速度.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3deeac46eb1448fba50550292dd31a9d~tplv-k3u1fbpfcp-watermark.image?)
+
+-   总结：vite 即时生效
+
+## 生产打包速度对比
+
+-   vue-cli 
+
+![vuecli打包速度.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/73d50dc11382410ba895d6bfb3223156~tplv-k3u1fbpfcp-watermark.image?)
+
+-   vite-vue 
+
+![vite打包速度.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/74e2122b1c634b3bb4ef1f6e959abcb2~tplv-k3u1fbpfcp-watermark.image?)
+-   总结：几乎没什么差别
+
+# 项目介绍
 
 ## Node 版本要求
 
