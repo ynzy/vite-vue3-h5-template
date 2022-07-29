@@ -26,6 +26,7 @@
     "src/**/*.vue",
     "mock/**/*.ts", 
     "types/**/*.d.ts",
+    "build/**/*.ts",
   ],
   "exclude": [
     "node_modules",
