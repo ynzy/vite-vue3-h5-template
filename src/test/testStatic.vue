@@ -3,8 +3,11 @@
 	<div>
 		<h1>测试静态资源使用</h1>
 		<!-- <img src="@/assets/images/图片.jpg" alt=""> -->
-		<img src="@/assets/images/pic.jpeg" alt="" />
-		<img :src="imgUrl" alt="" />
+		<div class="box">
+			<img class="img" src="@/assets/images/pic.jpeg" alt="" />
+			<img class="img" :src="imgUrl" alt="" />
+			<div class="bg">23</div>
+		</div>
 	</div>
 </template>
 <script setup lang="ts">
@@ -33,4 +36,18 @@ console.log(imgUrl)
 // const imgUrl = getImage('png/年终总结')
 // console.log('年终总结图片',imgUrl);
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.box {
+	display: flex;
+	flex-direction: column;
+	img {
+		width: 300px;
+		height: 200px;
+	}
+	.bg {
+		width: 300px;
+		height: 200px;
+		background: url('@/assets/images/png/typeScript.png');
+	}
+}
+</style>

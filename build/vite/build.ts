@@ -12,13 +12,13 @@ export function createBuild(viteEnv: ViteEnv) {
 		chunkSizeWarningLimit: 2000, // chunk 大小警告的限制（以 kbs 为单位）
 		// assetsDir: 'static/img/', // 静态资源目录
 		// rollup 打包配置
-		// rollupOptions: {
-		// 	output: {
-		// 		chunkFileNames: 'static/js/[name]-[hash].js',
-		// 		entryFileNames: 'static/js/[name]-[hash].js',
-		// 		assetFileNames: 'static/[ext]/[name]-[hash].[ext]'
-		// 	}
-		// },
+		rollupOptions: {
+			output: {
+				chunkFileNames: 'static/js/[name]-[hash].js',
+				entryFileNames: 'static/js/[name]-[hash].js',
+				assetFileNames: 'static/[ext]/[name]-[hash].[ext]'
+			}
+		},
 		// 压缩配置
 		terserOptions: {
 			compress: {
