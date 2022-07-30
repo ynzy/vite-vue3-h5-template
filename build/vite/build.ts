@@ -1,5 +1,4 @@
 import type { BuildOptions } from 'vite'
-import type { PreRenderedAsset } from 'rollup'
 
 export function createBuild(viteEnv: ViteEnv): BuildOptions {
 	const { VITE_OUTPUT_DIR } = viteEnv
@@ -41,5 +40,5 @@ export function createBuild(viteEnv: ViteEnv): BuildOptions {
 				drop_debugger: true // 生产环境移除debugger
 			}
 		}
-	} as BuildOptions
+	}
 }
